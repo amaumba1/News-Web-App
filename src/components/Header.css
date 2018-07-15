@@ -1,0 +1,24 @@
+.header-title {
+    display: inline-block; 
+    vertical-align: middle;
+    cursor: default;
+    color: #333333;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    user-select: none;
+    font-family: "MB Global Sans", Arial, Helvetica, sans-serif; 
+}
+
+.header-title-app {
+    font-size: 16.5px; 
+    line-height: 25px;
+    height: 25px; 
+}
+
+.header-logo {
+    display: inline-block;
+    margin: 10px;
+    width: 40px;
+    height: 40px; 
+}
