@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { MegaMenu } from 'primereact/megamenu';
-import { InputText } from 'primereact/inputtext'
-import { Button } from 'primereact/button'
+//import { InputText } from 'primereact/inputtext'
+//import { Button } from 'primereact/button'
 import 'primereact/resources/primereact.min.css'; 
 import 'primeicons/primeicons.css';
 import 'primereact/resources/themes/omega/theme.css';
@@ -140,10 +140,7 @@ class NavBar extends Component {
                 <div className="content-section implementation">
                     <Header/>
                     <MegaMenu model={this.state.items}>
-                        <div className="my-navbar">
-                        <InputText placeholder="Search" type="text" /> 
-                        <Button label="Logout" icon="fa fa-sign-out" style={{ marginLeft: 4 }}/>
-                        </div> 
+                       
                     </MegaMenu>
                 </div>
             </div>

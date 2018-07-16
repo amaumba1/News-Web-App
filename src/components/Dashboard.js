@@ -1,6 +1,7 @@
 import React from 'react'
-import Table from './Table'
+//import Table from './Table'
 import NavBar from './NavBar';
+import DataList from './DataList'
 
 
 const Dashboard = () => {
@@ -8,7 +9,7 @@ const Dashboard = () => {
         <div>
             <NavBar/> 
           <div className="table-container">
-            <Table /> 
+            <DataList /> 
           </div>
         </div> 
     )
