@@ -1,32 +1,17 @@
 import React, { Component } from 'react';
 import { MegaMenu } from 'primereact/megamenu';
+import { InputText } from 'primereact/inputtext'
+import { Button } from 'primereact/button'
 import 'primereact/resources/primereact.min.css'; 
 import 'primeicons/primeicons.css';
 import 'primereact/resources/themes/omega/theme.css';
+import 'font-awesome/css/font-awesome.css';
+import './NavBar.css'; 
 
 import Header from './Header'; 
 
 
 //import './App.css';
-
-const list = [
-    {
-        title: 'React',
-        url: 'https://facebook.github.io/react/',
-        author: 'Jordan Walke',
-        num_comments: 3,
-        points: 4,
-        objectID: 0,
-    },
-    {
-        title: 'Redux',
-        url: 'https://github.com/reactjs/redux',
-        author: 'Dan Abramov, Andrew Clark',
-        num_comments: 2,
-        points: 5,
-        objectID: 1,
-    },
-];
 
 
 class NavBar extends Component {
@@ -151,27 +136,16 @@ class NavBar extends Component {
     render() {
         return (
           <div>
-                <div>
-                    <div className="content-section implementation">
-                        <Header/>
-                        <MegaMenu model={this.state.items} />
-                    </div>
-                </div>
             <div>
-                {
-                    list.map((item) => {
-                        return (
-                            <div key={item.objectID}>
-                                <span>
-                                    {item.title}
-                                </span>
-                                <span>{item.author}</span>
-                                <span>{item.num_comments}</span>
-                                <span>{item.points}</span>
-                            </div>
-                        )
-                    })
-                }
+                <div className="content-section implementation">
+                    <Header/>
+                    <MegaMenu model={this.state.items}>
+                        <div className="my-navbar">
+                        <InputText placeholder="Search" type="text" /> 
+                        <Button label="Logout" icon="fa fa-sign-out" style={{ marginLeft: 4 }}/>
+                        </div> 
+                    </MegaMenu>
+                </div>
             </div>
           </div>
         );

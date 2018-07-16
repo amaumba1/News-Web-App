@@ -1,10 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-//import App from './App';
-import NavBar from './components/NavBar'
+
 import registerServiceWorker from './registerServiceWorker';
+import Dashboard from './components/Dashboard';
 
 
-ReactDOM.render(<NavBar />, document.getElementById('root'));
+ReactDOM.render(<Dashboard />, document.getElementById('root'));
 registerServiceWorker();
