@@ -63,18 +63,9 @@ class DataList extends Component {
     render() {
         const { searchTerm, result } = this.state
 
-        if (!result) { return null }
-        // let cols = [
-        //     { field: 'title', header: 'Title' },
-        //     { field: 'author', header: 'Author' },
-        //     { field: 'num_comments', header: 'Number of Comments' },
-        //     { field: 'points', header: 'Points' },
-        //     { field: 'url', header: 'Link to the Website' }
-        // ];
+       //if(!result) { return null }
 
-        // let dynamicColumns = cols.map((col, i) => {
-        //     return <Column key={col.field} field={col.field} header={col.header} />;
-        // });
+   
 
         return (
             <div className="App">
