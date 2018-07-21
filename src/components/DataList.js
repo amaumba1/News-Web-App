@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Search from './Search';
 import Table from './Table'; 
+import Button from './Button';
 
 import './Table.css'
 
@@ -9,7 +10,7 @@ const DEFAULT_QUERY = 'redux'
 const PATH_BASE = 'https://hn.algolia.com/api/v1';
 const PATH_SEARCH = '/search'
 const PARAM_SEARCH = 'query='
-
+const PARAM_PAGE = 'page='
 
 
 class DataList extends Component {
@@ -34,7 +35,13 @@ class DataList extends Component {
     }
 
     setSearchTopStories(result) {
-        this.setState({ result })
+        const { hits, page } = result;
+
+        const oldHits = page !== 0 ? this.state.result.hits : []; 
+
+        const updatedHits = [ ...oldHits, ...hits ]
+
+        this.setState({ hits: updatedHits, page})
     }
 
     componentDidMount() {
@@ -42,8 +49,8 @@ class DataList extends Component {
         this.fetchSearchTopStories(searchTerm)
     }
 
-    fetchSearchTopStories(searchTerm) {
-        fetch(`${PATH_BASE}${PATH_SEARCH}?${PARAM_SEARCH}${searchTerm}`)
+    fetchSearchTopStories(searchTerm, page = 0) {
+        fetch(`${PATH_BASE}${PATH_SEARCH}?${PARAM_SEARCH}${DEFAULT_QUERY}&${PARAM_PAGE}${page}`)
             .then(response => response.json)
             .then(result => this.setSearchTopStories(result))
             .catch(error => error)
@@ -60,12 +67,16 @@ class DataList extends Component {
         this.setState({ ...this.state.result, hits: updatedList })
     }
 
+
     render() {
         const { searchTerm, result } = this.state
+        const page = (result && result.page) || 0;
 
-       //if(!result) { return null }
+        if (!result) {
+            return null;
+        }
 
-   
+        
 
         return (
             <div className="App">
@@ -81,8 +92,13 @@ class DataList extends Component {
                 <Table
                     list={result.hits}
                     onDismiss={this.onDismiss}
-                />
+                /> 
                 }
+                <div>
+                    <Button onClick={() => this.fetchSearchTopStories(searchTerm, page + 1)}>
+                        More
+                    </Button>
+                </div>
             </div>
         );
     }
