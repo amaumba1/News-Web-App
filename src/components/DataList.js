@@ -5,7 +5,7 @@ import Button from './Button';
 
 import './Table.css'
 
-const DEFAULT_QUERY = 'redux'
+const DEFAULT_QUERY = ''
 
 const PATH_BASE = 'https://hn.algolia.com/api/v1';
 const PATH_SEARCH = '/search'
@@ -28,32 +28,10 @@ class DataList extends Component {
         this.fetchSearchTopStories = this.fetchSearchTopStories.bind(this)
     }
 
-    onSearchSubmit(event) {
-        const { searchTerm } = this.state;
-        this.fetchSearchTopStories(searchTerm)
-        event.preventDefault(); 
-    }
-
-    setSearchTopStories(result) {
-        const { hits, page } = result;
-
-        const oldHits = page !== 0 ? this.state.result.hits : []; 
-
-        const updatedHits = [ ...oldHits, ...hits ]
-
-        this.setState({ hits: updatedHits, page})
-    }
-
-    componentDidMount() {
-        const { searchTerm } = this.state;
-        this.fetchSearchTopStories(searchTerm)
-    }
-
-    fetchSearchTopStories(searchTerm, page = 0) {
-        fetch(`${PATH_BASE}${PATH_SEARCH}?${PARAM_SEARCH}${DEFAULT_QUERY}&${PARAM_PAGE}${page}`)
-            .then(response => response.json)
-            .then(result => this.setSearchTopStories(result))
-            .catch(error => error)
+    onDismiss(id) {
+        const isNotId = item => item.objectID !== id;
+        const updatedList = this.state.result.hits.filter(isNotId)
+        this.setState({ ...this.state.result, hits: updatedList })
     }
 
     onSearchChange(event) {
@@ -61,22 +39,37 @@ class DataList extends Component {
 
     }
 
-    onDismiss(id) {
-        const isNotId = item => item.objectID !== id;
-        const updatedList = this.state.result.hits.filter(isNotId)
-        this.setState({ ...this.state.result, hits: updatedList })
+    setSearchTopStories(result) {
+        const { hits, page } = result;
+
+        const oldHits = page !== 0 ? this.state.result.hits : [];
+
+        const updatedHits = [...oldHits, ...hits]
+
+        this.setState({ result: { hits: updatedHits, page } })
     }
 
+    onSearchSubmit(event) {
+        const { searchTerm } = this.state;
+        this.fetchSearchTopStories(searchTerm)
+        event.preventDefault(); 
+    }
+
+    fetchSearchTopStories(searchTerm, page = 0) {
+        fetch(`${PATH_BASE}${PATH_SEARCH}?${PARAM_SEARCH}${searchTerm}&${PARAM_PAGE}${page}`)
+            .then(response => response.json())
+            .then(result => this.setSearchTopStories(result))
+            .catch(error => error)
+    }
+
+    componentDidMount() {
+        const { searchTerm } = this.state;
+        this.fetchSearchTopStories(searchTerm)
+    }
 
     render() {
         const { searchTerm, result } = this.state
         const page = (result && result.page) || 0;
-
-        if (!result) {
-            return null;
-        }
-
-        
 
         return (
             <div className="App">

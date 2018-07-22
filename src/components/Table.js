@@ -5,7 +5,9 @@ import './Table.css'
 
 const Table = ({ list, onDismiss }) =>
     <div>
-            {list.map(item => 
+            {
+                list.map(item => 
+                    
                     <div key={item.objectID}>
                         <span>
                             <a href={item.url}>{item.title}</a>

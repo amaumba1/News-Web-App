@@ -7,6 +7,8 @@ import 'primeicons/primeicons.css';
 import 'primereact/resources/themes/omega/theme.css';
 import 'font-awesome/css/font-awesome.css';
 import './NavBar.css'; 
+//import Search from './Search'
+//import HackerNew from './HackerNew'; 
 
 import Header from './Header'; 
 
@@ -20,25 +22,25 @@ class NavBar extends Component {
         this.state = {
             items: [
                 {
-                    label: 'TV', icon: 'fa fa-fw fa-check',
+                    //label: 'TV', icon: 'fa fa-fw fa-check',
                     items: [
                         [
                             {
-                                label: 'TV 1',
+                                //label: 'TV 1',
                                 items: [{ label: 'TV 1.1' }, { label: 'TV 1.2' }]
                             },
                             {
-                                label: 'TV 2',
+                                //label: 'TV 2',
                                 items: [{ label: 'TV 2.1' }, { label: 'TV 2.2' }]
                             }
                         ],
                         [
                             {
-                                label: 'TV 3',
+                                //label: 'TV 3',
                                 items: [{ label: 'TV 3.1' }, { label: 'TV 3.2' }]
                             },
                             {
-                                label: 'TV 4',
+                                //label: 'TV 4',
                                 items: [{ label: 'TV 4.1' }, { label: 'TV 4.2' }]
                             }
                         ]
@@ -49,31 +51,31 @@ class NavBar extends Component {
                     items: [
                         [
                             {
-                                label: 'Sports 1',
+                                //label: 'Sports 1',
                                 items: [{ label: 'Sports 1.1' }, { label: 'Sports 1.2' }]
                             },
                             {
-                                label: 'Sports 2',
+                                //label: 'Sports 2',
                                 items: [{ label: 'Sports 2.1' }, { label: 'Sports 2.2' }]
                             },
                         ],
                         [
                             {
-                                label: 'Sports 3',
+                                //label: 'Sports 3',
                                 items: [{ label: 'Sports 3.1' }, { label: 'Sports 3.2' }]
                             },
                             {
-                                label: 'Sports 4',
+                                //label: 'Sports 4',
                                 items: [{ label: 'Sports 4.1' }, { label: 'Sports 4.2' }]
                             }
                         ],
                         [
                             {
-                                label: 'Sports 5',
+                                //label: 'Sports 5',
                                 items: [{ label: 'Sports 5.1' }, { label: 'Sports 5.2' }]
                             },
                             {
-                                label: 'Sports 6',
+                                //label: 'Sports 6',
                                 items: [{ label: 'Sports 6.1' }, { label: 'Sports 6.2' }]
                             }
                         ]
@@ -140,7 +142,6 @@ class NavBar extends Component {
                 <div className="content-section implementation">
                     <Header/>
                     <MegaMenu model={this.state.items}>
-                       
                     </MegaMenu>
                 </div>
             </div>

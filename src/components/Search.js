@@ -14,3 +14,4 @@ const Search = ({ value, onChange, onSubmit, children }) =>
     </form> 
 
 export default Search 
+
