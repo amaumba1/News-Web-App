@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-//import Search from './Search';
+import Search from './Search';
 //import Table from './Table'; 
-import DataListTable from './DataListTable'; 
+import DataListTable from './DataListTable';
 import Button from './Button';
 
 
@@ -54,7 +54,7 @@ class DataList extends Component {
     onSearchSubmit(event) {
         const { searchTerm } = this.state;
         this.fetchSearchTopStories(searchTerm)
-        event.preventDefault(); 
+        event.preventDefault();
     }
 
     fetchSearchTopStories(searchTerm, page = 0) {
@@ -75,12 +75,19 @@ class DataList extends Component {
 
         return (
             <div className="App">
-        
-                { result &&
-                <DataListTable
-                    list={result.hits}
-                    onDismiss={this.onDismiss}
-                /> 
+                <Search
+                    value={searchTerm}
+                    onChange={this.onSearchChange}
+                    onSubmit={this.onSearchSubmit}
+                >
+                    Search
+                </Search>
+
+                {result &&
+                    <DataListTable
+                        list={result.hits}
+                        onDismiss={this.onDismiss}
+                    />
                 }
                 <div>
                     <Button onClick={() => this.fetchSearchTopStories(searchTerm, page + 1)}>

@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 //import Button from './Button';
 import RequestRow from './RequestRow';
 import {Table} from 'semantic-ui-react'
-import './Table.css'
+import 'semantic-ui-css/semantic.min.css'; 
+
 
 class DataListTable extends Component {
     renderRows() {
