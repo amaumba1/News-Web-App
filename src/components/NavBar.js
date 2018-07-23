@@ -143,6 +143,7 @@ class NavBar extends Component {
                     <Header/>
                     <MegaMenu model={this.state.items}>
                     </MegaMenu>
+                   
                 </div>
             </div>
           </div>

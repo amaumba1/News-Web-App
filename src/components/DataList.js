@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import Search from './Search';
-import Table from './Table'; 
+//import Table from './Table'; 
+import DataListTable from './DataListTable'; 
 import Button from './Button';
+
 
 import './Table.css'
 
@@ -82,7 +84,7 @@ class DataList extends Component {
                 </Search>
 
                 { result &&
-                <Table
+                <DataListTable
                     list={result.hits}
                     onDismiss={this.onDismiss}
                 /> 
