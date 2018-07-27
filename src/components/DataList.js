@@ -75,7 +75,7 @@ class DataList extends Component {
 
         return (
             <div className="App">
-        
+                
                 { result &&
                 <DataListTable
                     list={result.hits}
