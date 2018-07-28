@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Input, Menu } from 'semantic-ui-react'
 import Header from './Header';
-import DataList from './DataList'; 
+//import DataList from './DataList'; 
 
 export default class MenuExamplePointing extends Component {
   state = { activeItem: 'home' }

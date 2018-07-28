@@ -5,6 +5,7 @@ import {Table} from 'semantic-ui-react'
 import 'semantic-ui-css/semantic.min.css'; 
 
 
+
 class DataListTable extends Component {
     renderRows() {
         return this.props.list.map((item, objectID) => {
