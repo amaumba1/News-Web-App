@@ -3,7 +3,8 @@ import React from 'react'
 import NavBar from './NavBar';
 //import DataList from './DataList'
 //import HackerNew from './HackerNew'
-import DataList from './DataList';
+//import DataList from './DataList';
+import DataTableExcel from './DataTableExcel'; 
 
 
 const Dashboard = () => {
@@ -11,7 +12,7 @@ const Dashboard = () => {
         <div>
           <NavBar /> 
           <div className="table-container">
-            <DataList/> 
+            <DataTableExcel/> 
           </div>
         </div> 
     )

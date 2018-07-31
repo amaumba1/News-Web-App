@@ -77,8 +77,8 @@ class DataList extends Component {
         })
             const wb = XLSX.utils.book_new()
             const wsAll = XLSX.utils.aoa_to_sheet(users)
-            XLSX.utils.book_append_sheet(wb, wsAll, "All Users")
-            XLSX.writeFile(wb, "export-demo.xlsx")
+            XLSX.utils.book_append_sheet(wb, wsAll, "All Articles")
+            XLSX.writeFile(wb, "redux articles.xlsx")
     }
 
     onSearchSubmit(event) {
@@ -95,8 +95,9 @@ class DataList extends Component {
     }
 
     componentDidMount() {
-        const { searchTerm } = this.state;
+        const { searchTerm, users } = this.state;
         this.fetchSearchTopStories(searchTerm)
+        this.exportFile(users)
     }
 
     render() {
@@ -111,12 +112,12 @@ class DataList extends Component {
         return (
             <div className="App">
                 <button
-                    onClick={this.exportFile}>Export to Excel</button>
+                    onClick={() => this.exportFile}> Export to Excel</button> 
                 
                 { result &&
                 <DataListTable
                     list={result.hits}
-                    onClick={this.exportFile}
+                    //onClick={this.exportFile}
                     onDismiss={this.onDismiss}
                 /> 
                 }
